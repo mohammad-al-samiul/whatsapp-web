@@ -90,7 +90,13 @@ Install dependencies:
 Create a .env file in the root directory.
 
 Example:
-`   PORT=5000  CLIENT_URL=http://localhost:3000  PRODUCTION_URL=https://your-production-domain.com  QUEUE_CONCURRENCY=5   `
+
+```
+PORT=5000
+CLIENT_URL=http://localhost:3000
+PRODUCTION_URL=https://your-production-domain.com
+QUEUE_CONCURRENCY=5
+```
 
 ## ▶️ Running the Application
 
@@ -127,11 +133,21 @@ Session will be stored locally, so QR scanning is not required again after resta
 
 **Request Body**
 
-`   {    "phone": "8801712345678",    "message": "Hello from WhatsApp API"  }   `
+```
+{
+    "phone": "8801712345678",
+    "message": "Hello from WhatsApp API"
+}
+```
 
 **Response**
 
-`   {    "success": true,    "messageId": "3EB0C767D0E1F3..."  }   `
+```
+{
+    "success": true,
+    "messageId": "3EB0C767D0E1F3..."
+}
+```
 
 Phone number must include **country code**.
 
@@ -173,7 +189,13 @@ Request:
 `   POST http://localhost:5000/api/messages/send   `
 
 Body:
-`   {    "phone": "8801712345678",    "message": "Test message"  }   `
+
+```
+{
+    "phone": "8801712345678",
+    "message": "Test message"
+}
+```
 
 ## 🎥 Demo Flow
 
@@ -186,3 +208,7 @@ Body:
 ## 📄 License
 
 This project is developed for **technical assessment purposes**.
+
+```
+
+```
