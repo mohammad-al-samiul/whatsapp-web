@@ -1,8 +1,7 @@
 require("dotenv").config();
-
 const http = require("http");
-const app = require("./src/app");
-const { initSocket } = require("./src/sockets/socket");
+const app = require("./app");
+const { initSocket } = require("./sockets/socket");
 
 const server = http.createServer(app);
 
