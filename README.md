@@ -27,7 +27,7 @@ A Node.js backend application that integrates with **WhatsApp Web** to send mess
 
 ## 📁 Project Structure
 
-`
+````
 whatapp-backend
 │
 ├── .wwebjs_auth/                # Stores WhatsApp session data (auto generated)
@@ -68,7 +68,8 @@ whatapp-backend
 ├── .gitignore                   # Git ignore rules
 ├── package.json                 # Project dependencies and scripts
 ├── package-lock.json            # Dependency lock file
-└── README.md                    # Project documentation`
+└── README.md                    # Project documentation```
+````
 
 ## ⚙️ Installation
 
