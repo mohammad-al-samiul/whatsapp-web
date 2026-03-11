@@ -27,39 +27,79 @@ A Node.js backend application that integrates with **WhatsApp Web** to send mess
 
 ## 📁 Project Structure
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   whatsapp-backend  │  ├── src  │   ├── modules  │   │   └── message  │   │       ├── message.controller.js  │   │       ├── message.service.js  │   │       ├── message.routes.js  │   │       └── message.queue.js  │   │  │   ├── whatsapp  │   │   └── whatsapp.client.js  │   │  │   ├── sockets  │   │   └── socket.js  │   │  │   ├── middlewares  │   │   ├── error.middleware.js  │   │   └── rateLimiter.js  │   │  │   ├── utils  │   │   └── logger.js  │   │  │   ├── routes  │   │   └── index.js  │   │  │   └── app.js  │  ├── server.js  ├── .env  ├── package.json  └── README.md   `
+`
+whatapp-backend
+│
+├── .wwebjs_auth/                # Stores WhatsApp session data (auto generated)
+├── logs/                        # Application logs
+├── node_modules/                # Installed dependencies
+│
+├── src
+│   │
+│   ├── config/                  # Environment and configuration setup
+│   │
+│   ├── middlewares/             # Global middleware functions
+│   │   ├── error.middleware.js  # Centralized error handling
+│   │   └── rateLimiter.js       # API rate limiting
+│   │
+│   ├── modules/                 # Feature-based modules
+│   │   └── message
+│   │       ├── message.controller.js  # Handles incoming API requests
+│   │       ├── message.service.js     # Business logic for sending messages
+│   │       ├── message.routes.js      # Message related routes
+│   │       └── message.queue.js       # Concurrency queue management
+│   │
+│   ├── routes
+│   │   └── index.js             # Centralized API route registration
+│   │
+│   ├── sockets
+│   │   └── socket.js            # Socket.IO setup for real-time QR transmission
+│   │
+│   ├── utils
+│   │   └── logger.js            # Winston logger configuration
+│   │
+│   ├── whatsapp
+│   │   └── whatsapp.client.js   # WhatsApp Web client initialization
+│   │
+│   └── app.js                   # Express application setup
+│
+├── server.js                    # Application entry point
+├── .env                         # Environment variables
+├── .gitignore                   # Git ignore rules
+├── package.json                 # Project dependencies and scripts
+├── package-lock.json            # Dependency lock file
+└── README.md                    # Project documentation`
 
 ## ⚙️ Installation
 
 Clone the repository:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   git clone https://github.com/yourusername/whatsapp-backend.git   `
+`   git clone https://github.com/yourusername/whatsapp-backend.git   `
 
 Navigate to the project:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd whatsapp-backend   `
+`   cd whatsapp-backend   `
 
 Install dependencies:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm install   `
+`   npm install   `
 
 ## 🔧 Environment Variables
 
 Create a .env file in the root directory.
 
 Example:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   PORT=5000  CLIENT_URL=http://localhost:3000  PRODUCTION_URL=https://your-production-domain.com  QUEUE_CONCURRENCY=5   `
+`   PORT=5000  CLIENT_URL=http://localhost:3000  PRODUCTION_URL=https://your-production-domain.com  QUEUE_CONCURRENCY=5   `
 
 ## ▶️ Running the Application
 
 Start the server in development mode:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm run dev   `
+`   npm run dev   `
 
 Server will start on:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   http://localhost:5000   `
+`   http://localhost:5000   `
 
 ## 📲 WhatsApp Authentication
 
@@ -67,13 +107,13 @@ When the server starts, a **QR code will appear in the terminal**.
 
 Open WhatsApp on your phone:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   WhatsApp → Settings → Linked Devices → Link a Device   `
+`   WhatsApp → Settings → Linked Devices → Link a Device   `
 
 Scan the QR code displayed in the terminal.
 
 Once authenticated, the server will log:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   WhatsApp ready   `
+`   WhatsApp ready   `
 
 Session will be stored locally, so QR scanning is not required again after restart.
 
@@ -82,22 +122,21 @@ Session will be stored locally, so QR scanning is not required again after resta
 ### Send WhatsApp Message
 
 **Endpoint**
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   POST /api/messages/send   `
+`   POST /api/messages/send   `
 
 **Request Body**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "phone": "8801712345678",    "message": "Hello from WhatsApp API"  }   `
+`   {    "phone": "8801712345678",    "message": "Hello from WhatsApp API"  }   `
 
 **Response**
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "success": true,    "messageId": "3EB0C767D0E1F3..."  }   `
+`   {    "success": true,    "messageId": "3EB0C767D0E1F3..."  }   `
 
 Phone number must include **country code**.
 
 Example:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   8801712345678   `
+`   8801712345678   `
 
 ## 🔁 Concurrency Handling
 
@@ -105,7 +144,7 @@ The system uses **P-Queue** to control concurrent message sending.
 
 Example configuration:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   QUEUE_CONCURRENCY=5   `
+`   QUEUE_CONCURRENCY=5   `
 
 This ensures stable and controlled message processing.
 
@@ -130,11 +169,10 @@ Use **Postman** or any API client.
 
 Request:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   POST http://localhost:5000/api/messages/send   `
+`   POST http://localhost:5000/api/messages/send   `
 
 Body:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   {    "phone": "8801712345678",    "message": "Test message"  }   `
+`   {    "phone": "8801712345678",    "message": "Test message"  }   `
 
 ## 🎥 Demo Flow
 
